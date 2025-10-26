@@ -78,14 +78,18 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-            <Button size="lg" className="bubble-gradient text-white font-bold text-lg px-8 py-6 hover-scale">
-              <Icon name="Coffee" className="mr-2" size={24} />
-              Посмотреть меню
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-lg px-8 py-6">
-              <Icon name="TrendingUp" className="mr-2" size={24} />
-              Открыть франшизу
-            </Button>
+            <Link to="/menu">
+              <Button size="lg" className="bubble-gradient text-white font-bold text-lg px-8 py-6 hover-scale">
+                <Icon name="Coffee" className="mr-2" size={24} />
+                Посмотреть меню
+              </Button>
+            </Link>
+            <Link to="/franchise">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-lg px-8 py-6">
+                <Icon name="TrendingUp" className="mr-2" size={24} />
+                Открыть франшизу
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -98,9 +102,9 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <StatCard value="800₽" label="Средний чек" icon="Wallet" />
-            <StatCard value="5★" label="Рейтинг на Яндекс.Картах" icon="Star" />
-            <StatCard value="120+" label="Уникальных напитков" icon="Coffee" />
-            <StatCard value="24/7" label="Доставка работает" icon="Truck" />
+            <StatCard value="4.5★" label="Рейтинг на Яндекс.Картах" icon="Star" />
+            <StatCard value="30+" label="Уникальных напитков" icon="Coffee" />
+            <StatCard value="8-22" label="Доставка работает" icon="Truck" />
           </div>
         </div>
       </section>
@@ -130,10 +134,12 @@ export default function Home() {
                   <span className="text-foreground">Авторские топпинги и декор</span>
                 </li>
               </ul>
-              <Button className="bubble-gradient text-white font-bold hover-scale">
-                Попробовать сейчас
-                <Icon name="ArrowRight" className="ml-2" size={20} />
-              </Button>
+              <Link to="/menu">
+                <Button className="bubble-gradient text-white font-bold hover-scale">
+                  Попробовать сейчас
+                  <Icon name="ArrowRight" className="ml-2" size={20} />
+                </Button>
+              </Link>
             </div>
 
             <div className="relative">
@@ -182,10 +188,12 @@ export default function Home() {
                   <span className="text-foreground">Pet-friendly и семейная атмосфера</span>
                 </li>
               </ul>
-              <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary/10 font-bold">
-                Узнать больше
-                <Icon name="ArrowRight" className="ml-2" size={20} />
-              </Button>
+              <Link to="/brandbook">
+                <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary/10 font-bold">
+                  Узнать больше
+                  <Icon name="ArrowRight" className="ml-2" size={20} />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -201,14 +209,18 @@ export default function Home() {
             Присоединяйся к нашей франшизе! Полная поддержка, готовая бизнес-модель и фирменный стиль.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-            <Button size="lg" className="bubble-gradient text-white font-bold text-lg px-10 py-6 hover-scale">
-              <Icon name="Rocket" className="mr-2" size={24} />
-              Условия франшизы
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-lg px-10 py-6">
-              <Icon name="Download" className="mr-2" size={24} />
-              Скачать презентацию
-            </Button>
+            <Link to="/franchise">
+              <Button size="lg" className="bubble-gradient text-white font-bold text-lg px-10 py-6 hover-scale">
+                <Icon name="Rocket" className="mr-2" size={24} />
+                Условия франшизы
+              </Button>
+            </Link>
+            <Link to="/brandbook">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-lg px-10 py-6">
+                <Icon name="FileText" className="mr-2" size={24} />
+                Смотреть брендбук
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -233,6 +245,10 @@ export default function Home() {
             <div>
               <h3 className="font-bold mb-3">Контакты</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
+                <p className="flex items-center gap-2">
+                  <Icon name="MapPin" size={16} />
+                  Москва, Юлиана Семенова, 8к2
+                </p>
                 <a href="tel:+79600001410" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Icon name="Phone" size={16} />
                   8-960-000-14-10

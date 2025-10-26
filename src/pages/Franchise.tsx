@@ -534,9 +534,13 @@ export default function Franchise() {
               <h3 className="font-bold mb-3">Контакты</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <p className="flex items-center gap-2">
+                  <Icon name="MapPin" size={16} />
+                  Москва, Юлиана Семенова, 8к2
+                </p>
+                <a href="tel:+79600001410" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Icon name="Phone" size={16} />
                   8-960-000-14-10
-                </p>
+                </a>
                 <p className="flex items-center gap-2">
                   <Icon name="Mail" size={16} />
                   info@bubblecoffee.ru
