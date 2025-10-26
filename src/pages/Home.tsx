@@ -233,17 +233,13 @@ export default function Home() {
             <div>
               <h3 className="font-bold mb-3">Контакты</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
-                <p className="flex items-center gap-2">
-                  <Icon name="MapPin" size={16} />
-                  г. Москва, ул. Примерная, 1
-                </p>
-                <p className="flex items-center gap-2">
+                <a href="tel:+79600001410" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Icon name="Phone" size={16} />
-                  +7 (999) 123-45-67
-                </p>
+                  8-960-000-14-10
+                </a>
                 <p className="flex items-center gap-2">
                   <Icon name="Mail" size={16} />
-                  hello@bubblecoffee.ru
+                  info@bubblecoffee.ru
                 </p>
               </div>
             </div>
@@ -251,15 +247,16 @@ export default function Home() {
             <div>
               <h3 className="font-bold mb-3">Соцсети</h3>
               <div className="flex gap-3">
-                <Button variant="outline" size="icon" className="hover-scale">
-                  <Icon name="Instagram" size={20} />
-                </Button>
-                <Button variant="outline" size="icon" className="hover-scale">
-                  <Icon name="Send" size={20} />
-                </Button>
-                <Button variant="outline" size="icon" className="hover-scale">
-                  <Icon name="MessageCircle" size={20} />
-                </Button>
+                <a href="https://www.instagram.com/bubble.coffee_rus" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="hover-scale">
+                    <Icon name="Instagram" size={20} />
+                  </Button>
+                </a>
+                <a href="https://t.me/bubble_coffee_msk" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="hover-scale">
+                    <Icon name="Send" size={20} />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

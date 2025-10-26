@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { Progress } from '@/components/ui/progress';
@@ -47,6 +49,31 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       <div className="fixed top-0 left-0 w-full h-1 bubble-gradient z-50"></div>
+      
+      <nav className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border/50 mb-8">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full bubble-gradient flex items-center justify-center shadow-lg">
+              <span className="text-xl font-black text-white">BC</span>
+            </div>
+            <span className="text-2xl font-black neon-glow hidden md:block" style={{ fontFamily: '"Futura Round", sans-serif' }}>
+              BUBBLE COFFEE
+            </span>
+          </Link>
+          
+          <div className="flex gap-4">
+            <Link to="/">
+              <Button variant="outline">Главная</Button>
+            </Link>
+            <Link to="/franchise">
+              <Button className="bubble-gradient text-white font-bold">
+                <Icon name="Rocket" className="mr-2" size={16} />
+                Франшиза
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </nav>
       
       <div className="max-w-7xl mx-auto px-4 py-12">
         <header className="text-center mb-16 space-y-6 animate-fade-in">

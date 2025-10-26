@@ -125,16 +125,16 @@ export default function Franchise() {
 
           <div className="flex flex-wrap gap-6 justify-center pt-8">
             <Card className="p-6 text-center bg-gradient-to-br from-card to-card/50 border-primary/20">
-              <div className="text-4xl font-black neon-glow mb-2">700К₽</div>
+              <div className="text-4xl font-black neon-glow mb-2">600-700К₽</div>
               <div className="text-sm text-muted-foreground">Средняя выручка/мес</div>
             </Card>
             <Card className="p-6 text-center bg-gradient-to-br from-card to-card/50 border-primary/20">
-              <div className="text-4xl font-black neon-glow mb-2">6-12</div>
-              <div className="text-sm text-muted-foreground">месяцев окупаемость</div>
+              <div className="text-4xl font-black neon-glow mb-2">30+</div>
+              <div className="text-sm text-muted-foreground">Рецептов кофе</div>
             </Card>
             <Card className="p-6 text-center bg-gradient-to-br from-card to-card/50 border-primary/20">
-              <div className="text-4xl font-black neon-glow mb-2">35%+</div>
-              <div className="text-sm text-muted-foreground">Рентабельность</div>
+              <div className="text-4xl font-black neon-glow mb-2">5%</div>
+              <div className="text-sm text-muted-foreground">Роялти от выручки</div>
             </Card>
           </div>
         </div>
@@ -213,38 +213,40 @@ export default function Franchise() {
           <div className="grid md:grid-cols-3 gap-8">
             <PriceCard 
               title="Стартовый"
-              price="1 500 000₽"
+              price="500 000₽"
               features={[
                 'Право использования бренда (3 года)',
                 'Базовый брендбук и логотип',
-                'Меню на 60 позиций',
+                'Полное меню 30+ позиций кофе',
                 'Онлайн-обучение персонала',
                 'Список рекомендуемых поставщиков',
                 'Маркетинговые материалы',
-                'Email-поддержка'
+                'Email-поддержка',
+                'Роялти 5% от выручки'
               ]}
             />
 
             <PriceCard 
               title="Оптимальный"
-              price="2 500 000₽"
+              price="800 000₽"
               highlighted
               features={[
                 'Право использования бренда (5 лет)',
                 'Полный брендбук + дизайн-проект',
-                'Меню на 120 позиций + сезонные',
+                'Полное меню + сезонные позиции',
                 'Очное обучение 2 недели',
                 'Договоры с поставщиками',
                 'Полная маркетинговая стратегия',
                 'Помощь в запуске (2 недели)',
                 'Личный менеджер',
-                'Помощь в подборе помещения'
+                'Помощь в подборе помещения',
+                'Роялти 5% от выручки'
               ]}
             />
 
             <PriceCard 
               title="Премиум"
-              price="3 800 000₽"
+              price="1 200 000₽"
               features={[
                 'Право использования бренда (бессрочно)',
                 'Индивидуальный дизайн-проект под ключ',
@@ -255,7 +257,8 @@ export default function Franchise() {
                 'Запуск под ключ (1 месяц)',
                 'VIP-менеджер 24/7',
                 'Помощь в поиске и согласовании локации',
-                'Приоритетное обновление меню'
+                'Приоритетное обновление меню',
+                'Роялти 5% от выручки'
               ]}
             />
           </div>
@@ -331,49 +334,34 @@ export default function Franchise() {
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between mb-2">
-                    <span className="text-sm">Паушальный взнос</span>
-                    <span className="font-bold">2 500 000₽</span>
+                    <span className="text-sm">Паушальный взнос (пакет)</span>
+                    <span className="font-bold">500 000 - 1 200 000₽</span>
                   </div>
-                  <Progress value={45} className="h-2" />
+                  <Progress value={40} className="h-2" />
                 </div>
 
                 <div>
                   <div className="flex justify-between mb-2">
                     <span className="text-sm">Оборудование</span>
-                    <span className="font-bold">1 800 000₽</span>
+                    <span className="font-bold">до 500 000₽</span>
                   </div>
-                  <Progress value={32} className="h-2" />
+                  <Progress value={30} className="h-2" />
                 </div>
 
                 <div>
                   <div className="flex justify-between mb-2">
                     <span className="text-sm">Ремонт и дизайн</span>
-                    <span className="font-bold">800 000₽</span>
+                    <span className="font-bold">до 500 000₽</span>
                   </div>
-                  <Progress value={14} className="h-2" />
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-sm">Запас товара</span>
-                    <span className="font-bold">300 000₽</span>
-                  </div>
-                  <Progress value={5} className="h-2" />
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-sm">Маркетинг (запуск)</span>
-                    <span className="font-bold">200 000₽</span>
-                  </div>
-                  <Progress value={4} className="h-2" />
+                  <Progress value={30} className="h-2" />
                 </div>
 
                 <div className="pt-4 border-t border-border">
                   <div className="flex justify-between">
-                    <span className="font-bold text-lg">ИТОГО</span>
-                    <span className="font-black text-2xl neon-glow">5 600 000₽</span>
+                    <span className="font-bold text-lg">ИТОГО (ориентировочно)</span>
+                    <span className="font-black text-2xl neon-glow">1 500 000 - 2 200 000₽</span>
                   </div>
+                  <p className="text-xs text-muted-foreground mt-2">Зависит от выбранного пакета и региона</p>
                 </div>
               </div>
             </Card>
@@ -387,13 +375,13 @@ export default function Franchise() {
               <div className="space-y-4">
                 <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
                   <div className="text-sm text-muted-foreground mb-1">Выручка</div>
-                  <div className="text-3xl font-black neon-glow">700 000₽</div>
+                  <div className="text-3xl font-black neon-glow">600 - 700 000₽</div>
                 </div>
 
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Себестоимость (30%)</span>
-                    <span className="font-semibold">- 210 000₽</span>
+                    <span className="font-semibold">- 180 - 210 000₽</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Аренда</span>
@@ -409,7 +397,7 @@ export default function Franchise() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Роялти (5%)</span>
-                    <span className="font-semibold">- 35 000₽</span>
+                    <span className="font-semibold">- 30 - 35 000₽</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Прочие расходы</span>
@@ -420,14 +408,15 @@ export default function Franchise() {
                 <div className="pt-4 border-t border-border">
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-lg">Чистая прибыль</span>
-                    <span className="font-black text-2xl text-primary">180 000₽</span>
+                    <span className="font-black text-2xl text-primary">115 - 215 000₽</span>
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">Рентабельность: ~26%</div>
+                  <div className="text-xs text-muted-foreground mt-1">Рентабельность: ~25-30%</div>
                 </div>
 
                 <div className="p-4 rounded-lg bg-secondary/5 border border-secondary/20 mt-6">
                   <div className="text-sm text-muted-foreground mb-1">Окупаемость</div>
-                  <div className="text-2xl font-black">8-12 месяцев</div>
+                  <div className="text-2xl font-black">10-18 месяцев</div>
+                  <div className="text-xs text-muted-foreground mt-1">Зависит от локации и проходимости</div>
                 </div>
               </div>
             </Card>
@@ -502,13 +491,79 @@ export default function Franchise() {
                 Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных
               </p>
             </form>
+
+            <div className="mt-8 pt-6 border-t border-border/50 text-center space-y-3">
+              <p className="text-sm text-muted-foreground">Или свяжитесь с нами напрямую:</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="tel:+79600001410" className="flex items-center gap-2 text-primary hover:underline font-medium">
+                  <Icon name="Phone" size={20} />
+                  8-960-000-14-10
+                </a>
+                <a href="https://t.me/bubble_coffee_msk" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:underline font-medium">
+                  <Icon name="Send" size={20} />
+                  Telegram
+                </a>
+                <a href="https://www.instagram.com/bubble.coffee_rus" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:underline font-medium">
+                  <Icon name="Instagram" size={20} />
+                  Instagram
+                </a>
+              </div>
+            </div>
           </Card>
         </div>
       </section>
 
-      <footer className="bg-card/50 border-t border-border/50 py-8">
-        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-muted-foreground">
-          © 2024 Bubble Coffee. Все права защищены.
+      <footer className="bg-card/50 border-t border-border/50 py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bubble-gradient flex items-center justify-center">
+                  <span className="text-lg font-black text-white">BC</span>
+                </div>
+                <span className="text-xl font-black neon-glow" style={{ fontFamily: '"Futura Round", sans-serif' }}>
+                  BUBBLE COFFEE
+                </span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Место, где вкус становится стилем
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold mb-3">Контакты</h3>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <p className="flex items-center gap-2">
+                  <Icon name="Phone" size={16} />
+                  8-960-000-14-10
+                </p>
+                <p className="flex items-center gap-2">
+                  <Icon name="Mail" size={16} />
+                  info@bubblecoffee.ru
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold mb-3">Соцсети</h3>
+              <div className="flex gap-3">
+                <a href="https://www.instagram.com/bubble.coffee_rus" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="hover-scale">
+                    <Icon name="Instagram" size={20} />
+                  </Button>
+                </a>
+                <a href="https://t.me/bubble_coffee_msk" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="hover-scale">
+                    <Icon name="Send" size={20} />
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-border/50 pt-6 text-center text-sm text-muted-foreground">
+            © 2024 Bubble Coffee. Все права защищены.
+          </div>
         </div>
       </footer>
     </div>
