@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Montserrat:wght@400;600;700;800&display=swap");
+@import url("https://fonts.cdnfonts.com/css/futura-round");
 
 @tailwind base;
 @tailwind components;
@@ -64,7 +65,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Futura Round", "Montserrat", sans-serif;
   }
 }
 

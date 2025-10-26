@@ -650,13 +650,13 @@ export default function Index() {
               
               <div className="space-y-8">
                 <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20">
-                  <h3 className="text-sm font-bold text-primary mb-4">ОСНОВНОЙ ШРИФТ — ЗАГОЛОВКИ</h3>
+                  <h3 className="text-sm font-bold text-primary mb-4">ОСНОВНОЙ ШРИФТ — ЗАГОЛОВКИ И ЛОГОТИП</h3>
                   <div className="space-y-3">
-                    <p className="text-5xl font-black" style={{ fontFamily: 'Montserrat, sans-serif' }}>Montserrat Black</p>
-                    <p className="text-4xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>Montserrat Bold</p>
-                    <p className="text-3xl font-semibold" style={{ fontFamily: 'Montserrat, sans-serif' }}>Montserrat SemiBold</p>
+                    <p className="text-5xl font-black" style={{ fontFamily: '"Futura Round", sans-serif' }}>Futura Round Bold</p>
+                    <p className="text-4xl font-bold" style={{ fontFamily: '"Futura Round", sans-serif' }}>Futura Round Medium</p>
+                    <p className="text-3xl font-semibold" style={{ fontFamily: '"Futura Round", sans-serif' }}>Futura Round Book</p>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-4">Используется для всех заголовков, логотипа и акцентов</p>
+                  <p className="text-sm text-muted-foreground mt-4">Используется для логотипа BUBBLE, всех заголовков и акцентов. Мягкие округлые формы создают дружелюбный современный стиль.</p>
                 </div>
 
                 <div className="p-6 rounded-xl bg-gradient-to-br from-secondary/10 to-transparent border border-secondary/20">
@@ -673,12 +673,12 @@ export default function Index() {
                   <h3 className="text-sm font-bold text-foreground mb-4">ПРИМЕРЫ СОЧЕТАНИЙ</h3>
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-3xl font-bold mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>Поймай вкус. Возьми с собой.</h4>
+                      <h4 className="text-3xl font-bold mb-2" style={{ fontFamily: '"Futura Round", sans-serif' }}>Поймай вкус. Возьми с собой.</h4>
                       <p className="text-base text-muted-foreground" style={{ fontFamily: 'Rubik, sans-serif' }}>Каждый глоток — удовольствие. Bubble Coffee — это кофе, который улыбается.</p>
                     </div>
                     <Separator />
                     <div>
-                      <h4 className="text-2xl font-bold mb-2 text-primary neon-glow" style={{ fontFamily: 'Montserrat, sans-serif' }}>BUBBLE COFFEE</h4>
+                      <h4 className="text-2xl font-bold mb-2 text-primary neon-glow" style={{ fontFamily: '"Futura Round", sans-serif' }}>BUBBLE COFFEE</h4>
                       <p className="text-sm" style={{ fontFamily: 'Rubik, sans-serif' }}>Место, где вкус становится стилем</p>
                     </div>
                   </div>
