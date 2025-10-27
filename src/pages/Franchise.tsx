@@ -320,9 +320,40 @@ export default function Franchise() {
           <h2 className="text-4xl md:text-5xl font-black text-center mb-4 neon-glow" style={{ fontFamily: '"Futura Round", sans-serif' }}>
             Финансовая модель
           </h2>
-          <p className="text-center text-muted-foreground mb-12">
+          <p className="text-center text-muted-foreground mb-6">
             Прозрачный расчёт для пакета "Оптимальный" (площадь 15-25 м²)
           </p>
+          
+          <div className="text-center mb-12">
+            <Button 
+              onClick={async () => {
+                try {
+                  const response = await fetch('https://functions.poehali.dev/cfcd47b3-447f-4fa4-8e57-859f3568157a', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                  });
+                  
+                  const blob = await response.blob();
+                  const url = window.URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = 'Bubble_Coffee_Financial_Report.pdf';
+                  document.body.appendChild(a);
+                  a.click();
+                  window.URL.revokeObjectURL(url);
+                  document.body.removeChild(a);
+                } catch (error) {
+                  console.error('Error downloading PDF:', error);
+                }
+              }}
+              size="lg"
+              className="bubble-gradient text-white font-bold hover-scale"
+            >
+              <Icon name="Download" size={20} className="mr-2" />
+              Скачать подробный PDF-отчёт
+            </Button>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="p-8 space-y-6 bg-gradient-to-br from-card to-card/50">
