@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { Progress } from '@/components/ui/progress';
 import Icon from '@/components/ui/icon';
+import Footer from '@/components/Footer';
 
 const ColorCard = ({ name, hex, rgb, usage }: { name: string; hex: string; rgb: string; usage: string }) => (
   <div className="flex flex-col gap-3 p-4 rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm hover:border-primary/50 transition-all">
@@ -1089,21 +1090,7 @@ export default function Index() {
           </TabsContent>
         </Tabs>
 
-        <footer className="mt-16 text-center pb-8">
-          <div className="inline-block p-8 rounded-2xl bubble-gradient-neon hover-scale">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center animate-float">
-                <span className="text-3xl font-black text-white">BC</span>
-              </div>
-            </div>
-            <h3 className="text-3xl font-black text-white mb-3 neon-glow" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-              BUBBLE COFFEE
-            </h3>
-            <p className="text-white/90 text-lg">
-              Не просто кофе. Это настроение, стиль и вкус, <br className="hidden md:block"/>к которому хочется возвращаться снова.
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </div>
   );

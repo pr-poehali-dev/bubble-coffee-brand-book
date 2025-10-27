@@ -4,6 +4,7 @@ import Icon from '@/components/ui/icon';
 import { Progress } from '@/components/ui/progress';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import Footer from '@/components/Footer';
 
 const PriceCard = ({ 
   title, 
@@ -544,68 +545,7 @@ export default function Franchise() {
         </div>
       </section>
 
-      <footer className="bg-card/50 border-t border-border/50 py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bubble-gradient flex items-center justify-center">
-                  <span className="text-lg font-black text-white">BC</span>
-                </div>
-                <span className="text-xl font-black neon-glow" style={{ fontFamily: '"Futura Round", sans-serif' }}>
-                  BUBBLE COFFEE
-                </span>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Место, где вкус становится стилем
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-3">Контакты</h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <p className="flex items-center gap-2">
-                  <Icon name="MapPin" size={16} />
-                  Москва, Юлиана Семенова, 8к2
-                </p>
-                <a href="tel:+79600001410" className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <Icon name="Phone" size={16} />
-                  8-960-000-141-0
-                </a>
-                <a href="mailto:bubble.coffee@mail.ru" className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <Icon name="Mail" size={16} />
-                  bubble.coffee@mail.ru
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-3">Соцсети</h3>
-              <div className="flex gap-3">
-                <a href="https://vk.com/bubble.coffee" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="hover-scale">
-                    <Icon name="User" size={20} />
-                  </Button>
-                </a>
-                <a href="https://t.me/bubble_coffee_msk" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="hover-scale">
-                    <Icon name="Send" size={20} />
-                  </Button>
-                </a>
-                <a href="https://www.instagram.com/bubble.coffee_rus" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="hover-scale">
-                    <Icon name="Instagram" size={20} />
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-border/50 pt-6 text-center text-sm text-muted-foreground">
-            © 2024 Bubble Coffee. Все права защищены.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
