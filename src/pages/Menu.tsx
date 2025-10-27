@@ -248,13 +248,13 @@ export default function Menu() {
           </Card>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-            <a href="https://yandex.ru/maps/-/CDdkiRli" target="_blank" rel="noopener noreferrer" className="flex-1 max-w-xs">
+            <a href="https://yandex.ru/maps/org/bubble_coffee/40703572870?si=wu3j1g3qy8cjnawtewrkhb6jn8" target="_blank" rel="noopener noreferrer" className="flex-1 max-w-xs">
               <Button size="lg" className="w-full bubble-gradient text-white font-bold text-lg px-8 py-6 hover-scale">
                 <Icon name="MapPin" className="mr-2" size={24} />
                 Яндекс Карты
               </Button>
             </a>
-            <a href="https://eda.yandex.ru/moscow/r/bubble_coffee" target="_blank" rel="noopener noreferrer" className="flex-1 max-w-xs">
+            <a href="https://eda.yandex.ru/restaurant/bubble_coffee" target="_blank" rel="noopener noreferrer" className="flex-1 max-w-xs">
               <Button size="lg" variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 font-bold text-lg px-8 py-6">
                 <Icon name="ShoppingBag" className="mr-2" size={24} />
                 Яндекс Еда
@@ -290,26 +290,31 @@ export default function Menu() {
                 </p>
                 <a href="tel:+79600001410" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Icon name="Phone" size={16} />
-                  8-960-000-14-10
+                  8-960-000-141-0
                 </a>
-                <p className="flex items-center gap-2">
+                <a href="mailto:bubble.coffee@mail.ru" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Icon name="Mail" size={16} />
-                  info@bubblecoffee.ru
-                </p>
+                  bubble.coffee@mail.ru
+                </a>
               </div>
             </div>
 
             <div>
               <h3 className="font-bold mb-3">Соцсети</h3>
               <div className="flex gap-3">
-                <a href="https://www.instagram.com/bubble.coffee_rus" target="_blank" rel="noopener noreferrer">
+                <a href="https://vk.com/bubble.coffee" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="icon" className="hover-scale">
-                    <Icon name="Instagram" size={20} />
+                    <Icon name="User" size={20} />
                   </Button>
                 </a>
                 <a href="https://t.me/bubble_coffee_msk" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="icon" className="hover-scale">
                     <Icon name="Send" size={20} />
+                  </Button>
+                </a>
+                <a href="https://www.instagram.com/bubble.coffee_rus" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="hover-scale">
+                    <Icon name="Instagram" size={20} />
                   </Button>
                 </a>
               </div>

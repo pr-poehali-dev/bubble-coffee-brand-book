@@ -74,7 +74,7 @@ export default function Home() {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto" style={{ fontFamily: 'Rubik, sans-serif' }}>
-            Авторский кофе, bubble tea и пончики в молодёжном формате
+            Авторский кофе и bubble tea в молодёжном формате
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
@@ -251,26 +251,31 @@ export default function Home() {
                 </p>
                 <a href="tel:+79600001410" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Icon name="Phone" size={16} />
-                  8-960-000-14-10
+                  8-960-000-141-0
                 </a>
-                <p className="flex items-center gap-2">
+                <a href="mailto:bubble.coffee@mail.ru" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Icon name="Mail" size={16} />
-                  info@bubblecoffee.ru
-                </p>
+                  bubble.coffee@mail.ru
+                </a>
               </div>
             </div>
 
             <div>
               <h3 className="font-bold mb-3">Соцсети</h3>
               <div className="flex gap-3">
-                <a href="https://www.instagram.com/bubble.coffee_rus" target="_blank" rel="noopener noreferrer">
+                <a href="https://vk.com/bubble.coffee" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="icon" className="hover-scale">
-                    <Icon name="Instagram" size={20} />
+                    <Icon name="User" size={20} />
                   </Button>
                 </a>
                 <a href="https://t.me/bubble_coffee_msk" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="icon" className="hover-scale">
                     <Icon name="Send" size={20} />
+                  </Button>
+                </a>
+                <a href="https://www.instagram.com/bubble.coffee_rus" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="hover-scale">
+                    <Icon name="Instagram" size={20} />
                   </Button>
                 </a>
               </div>
