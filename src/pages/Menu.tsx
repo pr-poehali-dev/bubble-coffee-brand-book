@@ -7,81 +7,108 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface MenuItem {
   name: string;
-  price: string;
+  sizes: {
+    ml30?: string;
+    ml200?: string;
+    ml300?: string;
+    ml400?: string;
+  };
   description?: string;
-  image?: string;
 }
 
-const MenuItemCard = ({ item }: { item: MenuItem }) => (
-  <Card className="p-6 hover-scale bg-gradient-to-br from-card to-card/50 border-primary/20">
-    <div className="space-y-3">
-      <div className="flex items-start justify-between gap-3">
-        <h3 className="text-lg font-bold" style={{ fontFamily: '"Futura Round", sans-serif' }}>
+interface MenuSection {
+  title: string;
+  icon: string;
+  items: MenuItem[];
+}
+
+const MenuItemCard = ({ item }: { item: MenuItem }) => {
+  const sizes = Object.entries(item.sizes).filter(([_, price]) => price);
+  
+  return (
+    <Card className="p-4 hover-scale bg-gradient-to-br from-card to-card/50 border-primary/20">
+      <div className="space-y-2">
+        <h3 className="text-base font-bold" style={{ fontFamily: '"Futura Round", sans-serif' }}>
           {item.name}
         </h3>
-        <span className="text-xl font-black text-primary neon-glow whitespace-nowrap">
-          {item.price}
-        </span>
+        {item.description && (
+          <p className="text-xs text-muted-foreground">{item.description}</p>
+        )}
+        <div className="flex flex-wrap gap-2 pt-2">
+          {sizes.map(([size, price]) => {
+            const mlSize = size === 'ml30' ? '30мл' : size === 'ml200' ? '200мл' : size === 'ml300' ? '300мл' : '400мл';
+            return (
+              <div key={size} className="flex items-center gap-2 bg-primary/10 px-2 py-1 rounded-lg">
+                <span className="text-xs text-muted-foreground">{mlSize}</span>
+                <span className="text-sm font-bold text-primary">{price}</span>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      {item.description && (
-        <p className="text-sm text-muted-foreground">{item.description}</p>
-      )}
-    </div>
-  </Card>
-);
+    </Card>
+  );
+};
 
 export default function Menu() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const coffeeMenu: MenuItem[] = [
-    { name: 'Эспрессо', price: '120₽', description: 'Классический крепкий кофе' },
-    { name: 'Американо', price: '150₽', description: 'Эспрессо с горячей водой' },
-    { name: 'Капучино', price: '200₽', description: 'Эспрессо с молочной пенкой' },
-    { name: 'Латте', price: '220₽', description: 'Нежный кофе с молоком' },
-    { name: 'Флэт Уайт', price: '230₽', description: 'Двойной эспрессо с бархатной молочной пенкой' },
-    { name: 'Раф Кофе', price: '250₽', description: 'Сливочный кофе со сливками и ванилью' },
-    { name: 'Карамельный Латте', price: '270₽', description: 'Латте с карамельным сиропом' },
-    { name: 'Ванильный Капучино', price: '250₽', description: 'Капучино с ванильным сиропом' },
-    { name: 'Кокосовый Латте', price: '280₽', description: 'Латте на кокосовом молоке' },
-    { name: 'Банановый Раф', price: '290₽', description: 'Раф с банановым сиропом' },
+    { name: 'Эспрессо', sizes: { ml30: '150₽' } },
+    { name: 'Американо', sizes: { ml200: '260₽', ml300: '300₽', ml400: '330₽' } },
+    { name: 'Капучино', sizes: { ml200: '290₽', ml300: '330₽', ml400: '380₽' } },
+    { name: 'Латте', sizes: { ml200: '330₽', ml300: '380₽' } },
+    { name: 'Раф', sizes: { ml200: '380₽', ml300: '430₽' } },
+    { name: 'Флэт-уайт', sizes: { ml200: '350₽' } },
+  ];
+
+  const authorCoffeeMenu: MenuItem[] = [
+    { name: 'Раф Соленая фисташка', sizes: { ml300: '400₽', ml400: '450₽' } },
+    { name: 'Раф Халва', sizes: { ml300: '400₽', ml400: '450₽' } },
+    { name: 'Раф Арахисовый', sizes: { ml300: '400₽', ml400: '450₽' } },
+    { name: 'Латте Взрывная карамель', sizes: { ml300: '380₽', ml400: '430₽' } },
+    { name: 'Латте Белый шоколад', sizes: { ml300: '380₽', ml400: '430₽' } },
   ];
 
   const bubbleTeaMenu: MenuItem[] = [
-    { name: 'Классический Bubble Tea', price: '350₽', description: 'Чёрный чай с тапиокой и молоком' },
-    { name: 'Клубничный Bubble Tea', price: '380₽', description: 'Клубничный чай с тапиокой' },
-    { name: 'Манго Bubble Tea', price: '380₽', description: 'Манговый чай с тапиокой' },
-    { name: 'Маракуйя Bubble Tea', price: '390₽', description: 'Тропический чай с маракуйей и тапиокой' },
-    { name: 'Матча Bubble Tea', price: '400₽', description: 'Зелёный чай матча с тапиокой' },
-    { name: 'Шоколадный Bubble Tea', price: '380₽', description: 'Шоколадный напиток с тапиокой' },
-    { name: 'Карамельный Bubble Tea', price: '380₽', description: 'Сливочно-карамельный с тапиокой' },
-    { name: 'Таро Bubble Tea', price: '400₽', description: 'Экзотический вкус таро с тапиокой' },
+    { name: 'БаблТи Кофейный', sizes: { ml300: '400₽', ml400: '450₽' } },
+    { name: 'БаблТи Матча', sizes: { ml300: '400₽', ml400: '450₽' } },
+    { name: 'БаблТи Матча-Клубника', sizes: { ml300: '440₽', ml400: '490₽' } },
+    { name: 'БаблТи Синнабон', sizes: { ml300: '440₽', ml400: '490₽' } },
+    { name: 'БаблТи Тропик', sizes: { ml300: '440₽', ml400: '490₽' } },
+    { name: 'БаблТи Малиновый пирог', sizes: { ml300: '440₽', ml400: '490₽' } },
+    { name: 'БаблТи Шоколад', sizes: { ml300: '440₽', ml400: '490₽' } },
+    { name: 'БаблТи Попкорн', sizes: { ml300: '440₽', ml400: '490₽' } },
+    { name: 'БаблТи Salty карамель', sizes: { ml300: '440₽', ml400: '490₽' } },
   ];
 
-  const lemonadeMenu: MenuItem[] = [
-    { name: 'Классический Лимонад', price: '250₽', description: 'Освежающий лимонад с мятой' },
-    { name: 'Клубничный Лимонад', price: '280₽', description: 'Лимонад со свежей клубникой' },
-    { name: 'Маракуйя Лимонад', price: '300₽', description: 'Тропический лимонад с маракуйей' },
-    { name: 'Арбузный Лимонад', price: '280₽', description: 'Летний лимонад с арбузом' },
-    { name: 'Манго Лимонад', price: '300₽', description: 'Лимонад с манго и апельсином' },
-    { name: 'Малиновый Мохито', price: '320₽', description: 'Безалкогольный мохито с малиной' },
+  const hotDrinksMenu: MenuItem[] = [
+    { name: 'Горячий шоколад', sizes: { ml200: '290₽', ml300: '330₽', ml400: '380₽' } },
+    { name: 'Какао', sizes: { ml200: '290₽', ml300: '330₽', ml400: '380₽' } },
+    { name: 'Матча-латте', sizes: { ml200: '290₽', ml300: '330₽', ml400: '380₽' } },
+    { name: 'Глинтвейн', sizes: { ml300: '390₽', ml400: '440₽' } },
   ];
 
-  const dessertsMenu: MenuItem[] = [
-    { name: 'Пончик с сахарной пудрой', price: '120₽', description: 'Классический пончик' },
-    { name: 'Пончик с шоколадом', price: '150₽', description: 'Пончик с шоколадной глазурью' },
-    { name: 'Пончик с карамелью', price: '150₽', description: 'Пончик с карамельной начинкой' },
-    { name: 'Пончик с клубникой', price: '170₽', description: 'Пончик с клубничным топпингом' },
-    { name: 'Пончик Ореховый', price: '180₽', description: 'Пончик с орехами и карамелью' },
-    { name: 'Чизкейк', price: '250₽', description: 'Нежный сливочный чизкейк' },
+  const teaMenu: MenuItem[] = [
+    { name: 'Ананас-маракуйя', sizes: { ml300: '390₽', ml400: '440₽' } },
+    { name: 'Малиновый', sizes: { ml300: '390₽', ml400: '440₽' } },
+    { name: 'Имбирный', sizes: { ml300: '390₽', ml400: '440₽' } },
+    { name: 'Облепиховый', sizes: { ml300: '390₽', ml400: '440₽' } },
   ];
 
-  const otherMenu: MenuItem[] = [
-    { name: 'Какао', price: '200₽', description: 'Горячий шоколадный напиток' },
-    { name: 'Горячий шоколад', price: '250₽', description: 'Насыщенный шоколадный напиток' },
-    { name: 'Матча Латте', price: '280₽', description: 'Японский зелёный чай с молоком' },
-    { name: 'Чай чёрный/зелёный', price: '150₽', description: 'Классический чай' },
-    { name: 'Смузи Ягодный', price: '300₽', description: 'Смузи из свежих ягод' },
-    { name: 'Смузи Тропический', price: '320₽', description: 'Смузи с манго и маракуйей' },
+  const smoothieMenu: MenuItem[] = [
+    { name: 'Смузи ягодный', sizes: { ml300: '330₽', ml400: '360₽' } },
+    { name: 'Смузи мята-маракуйя', sizes: { ml300: '330₽', ml400: '360₽' } },
+    { name: 'Смузи ананас-манго', sizes: { ml300: '330₽', ml400: '360₽' } },
+  ];
+
+  const menuSections: MenuSection[] = [
+    { title: 'Кофе', icon: 'Coffee', items: coffeeMenu },
+    { title: 'Авторский кофе', icon: 'Sparkles', items: authorCoffeeMenu },
+    { title: 'Bubble Tea', icon: 'Droplet', items: bubbleTeaMenu },
+    { title: 'Горячие напитки', icon: 'Flame', items: hotDrinksMenu },
+    { title: 'Чай', icon: 'Leaf', items: teaMenu },
+    { title: 'Смузи', icon: 'Grape', items: smoothieMenu },
   ];
 
   return (
@@ -136,141 +163,162 @@ export default function Menu() {
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto" style={{ fontFamily: 'Rubik, sans-serif' }}>
-              Авторские напитки, свежая тапиока и десерты каждый день
+              Авторские напитки и свежая тапиока каждый день
             </p>
           </div>
 
           <Tabs defaultValue="coffee" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 gap-2 bg-card/50 p-2 h-auto mb-8">
-              <TabsTrigger value="coffee" className="text-sm md:text-base">
-                <Icon name="Coffee" className="mr-2" size={18} />
-                Кофе
-              </TabsTrigger>
-              <TabsTrigger value="bubble" className="text-sm md:text-base">
-                <Icon name="Droplet" className="mr-2" size={18} />
-                Bubble Tea
-              </TabsTrigger>
-              <TabsTrigger value="lemonade" className="text-sm md:text-base">
-                <Icon name="Wine" className="mr-2" size={18} />
-                Лимонады
-              </TabsTrigger>
-              <TabsTrigger value="desserts" className="text-sm md:text-base">
-                <Icon name="Cake" className="mr-2" size={18} />
-                Десерты
-              </TabsTrigger>
-              <TabsTrigger value="other" className="text-sm md:text-base">
-                <Icon name="Sparkles" className="mr-2" size={18} />
-                Другое
-              </TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 gap-2 bg-card/50 p-2 h-auto mb-8">
+              {menuSections.map((section) => (
+                <TabsTrigger 
+                  key={section.title} 
+                  value={section.title.toLowerCase().replace(/\s+/g, '-')} 
+                  className="text-xs md:text-sm"
+                >
+                  <Icon name={section.icon as any} className="mr-1 md:mr-2" size={16} />
+                  <span className="hidden sm:inline">{section.title}</span>
+                </TabsTrigger>
+              ))}
             </TabsList>
 
-            <TabsContent value="coffee" className="space-y-4 animate-fade-in">
-              <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: '"Futura Round", sans-serif' }}>
-                  ☕ Авторский кофе
-                </h2>
-                <p className="text-muted-foreground">30+ рецептов на мексиканском зерне</p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {coffeeMenu.map((item, idx) => (
-                  <MenuItemCard key={idx} item={item} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="bubble" className="space-y-4 animate-fade-in">
-              <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: '"Futura Round", sans-serif' }}>
-                  🫧 Bubble Tea
-                </h2>
-                <p className="text-muted-foreground">Свежая тапиока, которую варим каждый день</p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {bubbleTeaMenu.map((item, idx) => (
-                  <MenuItemCard key={idx} item={item} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="lemonade" className="space-y-4 animate-fade-in">
-              <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: '"Futura Round", sans-serif' }}>
-                  🍋 Освежающие лимонады
-                </h2>
-                <p className="text-muted-foreground">Идеально для жаркого дня</p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {lemonadeMenu.map((item, idx) => (
-                  <MenuItemCard key={idx} item={item} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="desserts" className="space-y-4 animate-fade-in">
-              <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: '"Futura Round", sans-serif' }}>
-                  🍩 Сладости
-                </h2>
-                <p className="text-muted-foreground">Пончики и десерты к кофе</p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {dessertsMenu.map((item, idx) => (
-                  <MenuItemCard key={idx} item={item} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="other" className="space-y-4 animate-fade-in">
-              <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: '"Futura Round", sans-serif' }}>
-                  ✨ Другие напитки
-                </h2>
-                <p className="text-muted-foreground">Чай, какао, смузи</p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {otherMenu.map((item, idx) => (
-                  <MenuItemCard key={idx} item={item} />
-                ))}
-              </div>
-            </TabsContent>
+            {menuSections.map((section) => (
+              <TabsContent 
+                key={section.title} 
+                value={section.title.toLowerCase().replace(/\s+/g, '-')} 
+                className="mt-6"
+              >
+                <div className="mb-6">
+                  <h2 className="text-3xl font-black mb-2" style={{ fontFamily: '"Futura Round", sans-serif' }}>
+                    {section.title}
+                  </h2>
+                  <div className="h-1 w-20 bubble-gradient rounded-full"></div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {section.items.map((item, index) => (
+                    <MenuItemCard key={index} item={item} />
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
           </Tabs>
-        </div>
-      </section>
 
-      <section className="py-20 bg-gradient-to-b from-card/20 to-transparent">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <Card className="p-8 md:p-12 bg-gradient-to-br from-card to-card/50 border-primary/30">
-            <Icon name="MapPin" className="mx-auto mb-4 text-primary" size={48} />
-            <h2 className="text-3xl md:text-4xl font-black mb-4 neon-glow" style={{ fontFamily: '"Futura Round", sans-serif' }}>
-              Приходите к нам!
+          <Card className="mt-12 p-6 md:p-8 bg-gradient-to-br from-primary/10 to-primary/5 border-primary/30">
+            <h2 className="text-2xl font-black mb-4" style={{ fontFamily: '"Futura Round", sans-serif' }}>
+              Дополнители
             </h2>
-            <p className="text-xl text-muted-foreground mb-6">
-              Москва, Юлиана Семенова, 8к2
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://yandex.ru/maps/-/CDdkmPwH" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bubble-gradient text-white font-bold hover-scale">
-                  <Icon name="MapPin" className="mr-2" size={20} />
-                  Открыть на картах
-                </Button>
-              </a>
-              <a href="https://eda.yandex.ru/restaurant/bubble_coffee" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold">
-                  <Icon name="ShoppingBag" className="mr-2" size={20} />
-                  Заказать доставку
-                </Button>
-              </a>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div className="space-y-2">
+                <p className="flex justify-between">
+                  <span>Сироп</span>
+                  <span className="font-bold text-primary">50₽</span>
+                </p>
+                <p className="flex justify-between">
+                  <span>Сливки</span>
+                  <span className="font-bold text-primary">90₽</span>
+                </p>
+                <p className="flex justify-between">
+                  <span>Молоко</span>
+                  <span className="font-bold text-primary">60₽</span>
+                </p>
+                <p className="flex justify-between">
+                  <span>Шот эспрессо</span>
+                  <span className="font-bold text-primary">70₽</span>
+                </p>
+              </div>
+              <div className="space-y-2">
+                <p className="flex justify-between">
+                  <span>Тапиока (шарики)</span>
+                  <span className="font-bold text-primary">100₽</span>
+                </p>
+                <p className="flex justify-between">
+                  <span>Альтернативное молоко</span>
+                  <span className="font-bold text-primary">90₽</span>
+                </p>
+                <p className="flex justify-between">
+                  <span>Топпинг</span>
+                  <span className="font-bold text-primary">50₽</span>
+                </p>
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground mt-6">
-              🚚 Доставка работает с 8:00 до 22:00
-            </p>
+            <div className="mt-6 pt-6 border-t border-primary/20">
+              <p className="text-xs text-muted-foreground">
+                <strong>Альтернативное молоко:</strong> Безлактозное, Кокосовое, Миндальное, Банановое
+              </p>
+            </div>
           </Card>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+            <a href="https://yandex.ru/maps/-/CDdkiRli" target="_blank" rel="noopener noreferrer" className="flex-1 max-w-xs">
+              <Button size="lg" className="w-full bubble-gradient text-white font-bold text-lg px-8 py-6 hover-scale">
+                <Icon name="MapPin" className="mr-2" size={24} />
+                Яндекс Карты
+              </Button>
+            </a>
+            <a href="https://eda.yandex.ru/moscow/r/bubble_coffee" target="_blank" rel="noopener noreferrer" className="flex-1 max-w-xs">
+              <Button size="lg" variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 font-bold text-lg px-8 py-6">
+                <Icon name="ShoppingBag" className="mr-2" size={24} />
+                Яндекс Еда
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
 
-      <footer className="bg-card/50 border-t border-border/50 py-8">
-        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-muted-foreground">
-          © 2024 Bubble Coffee. Все права защищены.
+      <footer className="border-t border-border/50 bg-card/30 backdrop-blur-lg">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bubble-gradient flex items-center justify-center">
+                  <span className="text-lg font-black text-white">BC</span>
+                </div>
+                <span className="text-xl font-black neon-glow" style={{ fontFamily: '"Futura Round", sans-serif' }}>
+                  BUBBLE COFFEE
+                </span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Место, где вкус становится стилем
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold mb-3">Контакты</h3>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <p className="flex items-center gap-2">
+                  <Icon name="MapPin" size={16} />
+                  Москва, Юлиана Семенова, 8к2
+                </p>
+                <a href="tel:+79600001410" className="flex items-center gap-2 hover:text-primary transition-colors">
+                  <Icon name="Phone" size={16} />
+                  8-960-000-14-10
+                </a>
+                <p className="flex items-center gap-2">
+                  <Icon name="Mail" size={16} />
+                  info@bubblecoffee.ru
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold mb-3">Соцсети</h3>
+              <div className="flex gap-3">
+                <a href="https://www.instagram.com/bubble.coffee_rus" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="hover-scale">
+                    <Icon name="Instagram" size={20} />
+                  </Button>
+                </a>
+                <a href="https://t.me/bubble_coffee_msk" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="hover-scale">
+                    <Icon name="Send" size={20} />
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-border/50 pt-6 mt-6 text-center text-sm text-muted-foreground">
+            © 2024 Bubble Coffee. Все права защищены.
+          </div>
         </div>
       </footer>
     </div>
